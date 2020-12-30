@@ -15,6 +15,8 @@ class JogoVelha {
     this.salvarLocal.addEventListener('click', this.salvaLocal.bind(this));
     this.carregarLocal = document.querySelector('#carrega-local');
     this.carregarLocal.addEventListener('click', this.carregaLocal.bind(this));
+    this.limparLocal = document.querySelector('#limpar');
+    this.limparLocal.addEventListener('click', this.limpaLocal.bind(this));
     this.velha = document.querySelector('#velha');
     this.velha.addEventListener('click', (event) => {
       this.realizaJogada(event);
@@ -41,6 +43,14 @@ class JogoVelha {
     this.jogadorX.value = dados.jogadorX;
     this.jogadorO.value = dados.jogadorO;
     this.jogadas = dados.jogadas;
+    this.render();
+  }
+
+  limpaLocal() {
+    localStorage.removeItem('jogo');
+    this.jogadorX.value = '';
+    this.jogadorO.value = '';
+    this.iniciaEstado();
     this.render();
   }
 
