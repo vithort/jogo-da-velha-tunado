@@ -132,17 +132,17 @@ class JogoVelha {
     domtoimage
       .toPng(this.velha, { width: '400', height: '400' })
       .then((dataUrl) => {
-        return axios.post('/save', {
+        axios.post('/save', {
           jogadorX,
           jogadorO,
           jogadas: JSON.stringify(this.jogadas),
           img: dataUrl,
         });
       })
-      .then(function (response) {
+      .then((response) => {
         this.modal('Envio com Sucesso!');
       })
-      .catch(function (error) {
+      .catch((error) => {
         this.modal('oops, something went wrong!', error);
       });
   }

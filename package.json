@@ -1,0 +1,24 @@
+{
+  "name": "jogo-velha",
+  "version": "1.0.0",
+  "description": "Aplicações web na prática com Javascript e Node.js: Jogo da Velha Tunado",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vithort/jogo-da-velha-tunado.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vithort/jogo-da-velha-tunado/issues"
+  },
+  "homepage": "https://github.com/vithort/jogo-da-velha-tunado#readme",
+  "dependencies": {
+    "knex": "^0.21.15",
+    "mysql": "^2.18.1",
+    "restify": "^8.5.1"
+  }
+}

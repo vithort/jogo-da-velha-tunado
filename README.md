@@ -46,3 +46,16 @@ Convertendo: [448, 56, 7, 292, 146, 73, 273, 84]
 ## dom-to-image
 
 [dom-to-image](https://github.com/tsayen/dom-to-image)
+
+
+## Servidor
+
+```npm
+npm install --save knex mysql restify
+```
+
+```npm
+nodemon index.js
+```
+
+Execute db.sql
