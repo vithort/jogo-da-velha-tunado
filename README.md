@@ -22,7 +22,6 @@ browser-sync start --server "./dist" --files "."`
 
 Qualquer alteração na pasta indicada, faz um reload no site
 
-
 ## Verificando Vitória
 
 ### Posições de Vitória
@@ -43,3 +42,7 @@ _________
 001010100  /            \  84
 
 Convertendo: [448, 56, 7, 292, 146, 73, 273, 84]
+
+## dom-to-image
+
+[dom-to-image](https://github.com/tsayen/dom-to-image)

@@ -17,6 +17,8 @@ class JogoVelha {
     this.carregarLocal.addEventListener('click', this.carregaLocal.bind(this));
     this.limparLocal = document.querySelector('#limpar');
     this.limparLocal.addEventListener('click', this.limpaLocal.bind(this));
+    this.salvar = document.querySelector('#salvar');
+    this.salvar.addEventListener('click', this.enviarServidor.bind(this));
     this.velha = document.querySelector('#velha');
     this.velha.addEventListener('click', (event) => {
       this.realizaJogada(event);
@@ -79,7 +81,10 @@ class JogoVelha {
     const resultado = this.verificaVitoria();
     if (resultado == 'X' || resultado == 'O') {
       this.fim = true;
+      this.salvar.style.display = 'block';
       this.modal(`O Jogador ${resultado} venceu!`);
+    } else {
+      this.salvar.style.display = 'none';
     }
     const velhaElemento = document.querySelectorAll('[data-id]');
     for (let i = 0; i < 9; i++) {
@@ -119,5 +124,26 @@ class JogoVelha {
         modais.removeChild(modal);
       }, 1000);
     }, 2000);
+  }
+
+  enviarServidor() {
+    const jogadorX = this.jogadorX.value;
+    const jogadorO = this.jogadorO.value;
+    domtoimage
+      .toPng(this.velha, { width: '400', height: '400' })
+      .then((dataUrl) => {
+        return axios.post('/save', {
+          jogadorX,
+          jogadorO,
+          jogadas: JSON.stringify(this.jogadas),
+          img: dataUrl,
+        });
+      })
+      .then(function (response) {
+        this.modal('Envio com Sucesso!');
+      })
+      .catch(function (error) {
+        this.modal('oops, something went wrong!', error);
+      });
   }
 }
