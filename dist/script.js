@@ -5,6 +5,7 @@ window.onload = () => {
 class JogoVelha {
   constructor() {
     this.iniciaElementos();
+    this.turno = true;
   }
 
   iniciaElementos() {
@@ -13,6 +14,11 @@ class JogoVelha {
   }
 
   realizaJogada(event) {
-    event.target.innerHTML = 'X';
+    event.target.innerHTML = this.turno ? 'X' : 'O';
+    this.turno = !this.turno;
+  }
+
+  render() {
+    
   }
 }
