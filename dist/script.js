@@ -9,6 +9,10 @@ class JogoVelha {
   }
 
   iniciaElementos() {
+    this.salvarLocal = document.querySelector('#salva-local');
+    this.salvarLocal.addEventListener('click', this.salvaLocal.bind(this));
+    this.carregarLocal = document.querySelector('#carrega-local');
+    this.carregarLocal.addEventListener('click', this.carregaLocal.bind(this));
     this.velha = document.querySelector('#velha');
     this.velha.addEventListener('click', (event) => {
       this.realizaJogada(event);
@@ -20,6 +24,19 @@ class JogoVelha {
     this.turno = true;
     this.jogadas = [0, 0, 0, 0, 0, 0, 0, 0, 0];
   }
+
+  salvaLocal() {
+    const jogadorX = document.querySelector('#jogador-x');
+    const jogadorO = document.querySelector('#jogador-o');
+    const dados = {
+      jogadorX: jogadorX.value,
+      jogadorO: jogadorO.value,
+      jogadas: this.jogadas,
+    };
+    localStorage.setItem('jogo', JSON.stringify(dados));
+  }
+
+  carregaLocal() {}
 
   realizaJogada(event) {
     const id = event.target.dataset.id;
