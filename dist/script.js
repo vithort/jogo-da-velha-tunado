@@ -77,4 +77,8 @@ class JogoVelha {
       velhaElemento[i].innerHTML = this.jogadas[i] == 0 ? '' : this.jogadas[i];
     }
   }
+
+  verificaVitoria() {
+    
+  }
 }
