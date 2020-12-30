@@ -9,6 +9,78 @@
     <title>Jogo da Velha</title>
   </head>
   <body>
-    <p>Ola</p>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed">
+      <a class="navbar-brand" href="#">Jogo da Velha</a>
+
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              data-toggle="dropdown"
+              href="#"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Dropdown</a
+            >
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="text"
+            placeholder="Jogador X"
+          />
+          <input
+            class="form-control mr-sm-2"
+            type="text"
+            placeholder="Jogador O"
+          />
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+            Salvar
+          </button>
+        </form>
+      </div>
+    </nav>
+    <div id="velha" class="velha">
+      <div class="coluna">
+        <span data-id="0" class="quadro"></span>
+        <span data-id="1" class="quadro"></span>
+        <span data-id="2" class="quadro"></span>
+      </div>
+      <div class="coluna">
+        <span data-id="3" class="quadro"></span>
+        <span data-id="4" class="quadro"></span>
+        <span data-id="5" class="quadro"></span>
+      </div>
+      <div class="coluna">
+        <span data-id="6" class="quadro"></span>
+        <span data-id="7" class="quadro"></span>
+        <span data-id="8" class="quadro"></span>
+      </div>
+    </div>
   </body>
 </html>
