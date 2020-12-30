@@ -45,3 +45,8 @@ body {
 .velha .quadro:last-child {
   border: none;
 }
+
+span {
+  user-select: none;
+  margin: 0;
+}
