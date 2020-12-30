@@ -67,7 +67,7 @@ class JogoVelha {
   }
 
   render() {
-    const resultado = verificaVitoria();
+    const resultado = this.verificaVitoria();
     if (resultado == 'X' || resultado == 'O') {
       this.fim = true;
       console.log(`O Jogador ${resultado} venceu!`);
@@ -79,6 +79,22 @@ class JogoVelha {
   }
 
   verificaVitoria() {
-    
+    const valorX = parseInt(
+      this.jogadas.map((value) => (value == 'X' ? 1 : 0)).join(''),
+      2
+    );
+    const valorO = parseInt(
+      this.jogadas.map((value) => (value == 'O' ? 1 : 0)).join(''),
+      2
+    );
+    for (const element of this.vitoria) {
+      if ((element & valorX) == element) {
+        return 'X';
+      }
+      if ((element & valorO) == element) {
+        return 'O';
+      }
+    }
+    return '';
   }
 }
