@@ -9,6 +9,8 @@ class JogoVelha {
   }
 
   iniciaElementos() {
+    this.jogadorX = document.querySelector('#jogador-x');
+    this.jogadorO = document.querySelector('#jogador-o');
     this.salvarLocal = document.querySelector('#salva-local');
     this.salvarLocal.addEventListener('click', this.salvaLocal.bind(this));
     this.carregarLocal = document.querySelector('#carrega-local');
@@ -26,17 +28,21 @@ class JogoVelha {
   }
 
   salvaLocal() {
-    const jogadorX = document.querySelector('#jogador-x');
-    const jogadorO = document.querySelector('#jogador-o');
     const dados = {
-      jogadorX: jogadorX.value,
-      jogadorO: jogadorO.value,
+      jogadorX: this.jogadorX.value,
+      jogadorO: this.jogadorO.value,
       jogadas: this.jogadas,
     };
     localStorage.setItem('jogo', JSON.stringify(dados));
   }
 
-  carregaLocal() {}
+  carregaLocal() {
+    const dados = JSON.parse(localStorage.getItem('jogo'));
+    this.jogadorX.value = dados.jogadorX;
+    this.jogadorO.value = dados.jogadorO;
+    this.jogadas = dados.jogadas;
+    this.render();
+  }
 
   realizaJogada(event) {
     const id = event.target.dataset.id;
