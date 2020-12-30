@@ -59,9 +59,18 @@ class JogoVelha {
   realizaJogada(event) {
     const id = event.target.dataset.id;
     if (this.fim) {
-      console.log('Partida terminada!');
+      this.modal('Partida terminada!');
       return;
     }
+    if (!event.target.dataset.id) {
+      this.modal('Você precisa clicar em uma casa!');
+      return;
+    }
+    if (this.jogadas[id] != 0) {
+      this.modal('Esta posição já foi escolhida!');
+      return;
+    }
+
     this.jogadas[id] = this.turno ? 'X' : 'O';
     this.turno = !this.turno;
   }
@@ -70,7 +79,7 @@ class JogoVelha {
     const resultado = this.verificaVitoria();
     if (resultado == 'X' || resultado == 'O') {
       this.fim = true;
-      console.log(`O Jogador ${resultado} venceu!`);
+      this.modal(`O Jogador ${resultado} venceu!`);
     }
     const velhaElemento = document.querySelectorAll('[data-id]');
     for (let i = 0; i < 9; i++) {
@@ -96,5 +105,16 @@ class JogoVelha {
       }
     }
     return '';
+  }
+
+  modal(texto) {
+    const modais = document.querySelector('#modais');
+    const modal = document.createElement('div');
+    modal.innerHTML = texto;
+    modal.classList.add('modalClass');
+    modais.appendChild(modal);
+    setTimeout(() => {
+      modais.removeChild(modal);
+    }, 1000);
   }
 }
