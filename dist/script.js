@@ -114,7 +114,10 @@ class JogoVelha {
     modal.classList.add('modalClass');
     modais.appendChild(modal);
     setTimeout(() => {
-      modais.removeChild(modal);
-    }, 1000);
+      modal.classList.add('remover');
+      setTimeout(() => {
+        modais.removeChild(modal);
+      }, 1000);
+    }, 2000);
   }
 }
